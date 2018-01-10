@@ -2,7 +2,6 @@
   "name": "react-tutorial-tictactoe",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "http://cjbassi.github.io/react-tutorial-tictactoe",
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
