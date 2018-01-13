@@ -1,11 +1,35 @@
 import React from 'react'
 
-import Board from '../Board'
 import * as CSS from './CSS'
 
+import Board from '../Board'
+import MoveList from '../MoveList'
+import SortButton from '../SortButton'
+import Status from '../Status'
+
+function calculateWinner(squares) {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ]
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i]
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return [squares[a], lines[i]]
+    }
+  }
+  return [null, Array(3).fill(null)]
+}
+
 class App extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       history: [{
           squares: Array(9).fill(null)
@@ -20,7 +44,7 @@ class App extends React.Component {
     }
   }
 
-  handleClick(i) {
+  handleClick = (i) => {
     const history = this.state.history.slice(0, this.state.stepNumber + 1)
     const current = history[history.length - 1]
     const squares = current.squares.slice()
@@ -41,85 +65,46 @@ class App extends React.Component {
     })
   }
 
-  jumpTo(step) {
+  jumpTo = (step) => {
     this.setState({
       stepNumber: step,
       xIsNext: (step % 2) === 0
     })
   }
 
-  toggleSort() {
+  toggleSort = () => {
     this.setState({
       descending: !this.state.descending
     })
   }
 
   render() {
-    let { history, stepNumber, cellClicked, xIsNext, descending } = this.state
+    const { history, stepNumber, cellClicked, xIsNext, descending } = this.state
     const current = history[stepNumber]
     const winner = calculateWinner(current.squares)[0]
-    let moves = history.map((step, move) => {
-      const desc = move
-        ? `Go to move #${move} (${cellClicked[move]})`
-        : 'Go to game start'
-      return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>
-            {move === stepNumber ? <b>{desc}</b> : desc}
-          </button>
-        </li>
-      )
-    })
-
-    let status
-    if (winner) {
-      status = "Winner: " + winner
-    } else {
-      status = "Next player: " + (xIsNext ? "X" : "O")
-    }
-
-    let sort = <button onClick={() => this.toggleSort()}>toggle sort</button>
-    if (!descending) {
-      moves = moves.reverse()
-    }
-
     return (
       <CSS.Game>
         <div>
           <Board
             winLine={calculateWinner(current.squares)[1]}
             squares={current.squares}
-            onClick={i => this.handleClick(i)}
+            onClick={this.handleClick}
           />
-          <CSS.MoveList>{moves}</CSS.MoveList>
+          <MoveList
+            history={history}
+            descending={descending}
+            stepNumber={stepNumber}
+            jumpTo={this.jumpTo}
+            cellClicked={cellClicked}
+          />
         </div>
         <CSS.GameInfo>
-          <div>{status}</div>
-          <CSS.SortButton>{sort}</CSS.SortButton>
+          <Status winner={winner} xIsNext={xIsNext} />
+          <SortButton descending={descending} toggleSort={this.toggleSort} />
         </CSS.GameInfo>
       </CSS.Game>
     )
   }
-}
-
-function calculateWinner(squares) {
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-  ]
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i]
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return [squares[a], lines[i]]
-    }
-  }
-  return [null, Array(3).fill(null)]
 }
 
 export default App
