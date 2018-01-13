@@ -1,30 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 
-import Board from './Board.js'
-
-const GameCSS = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin: 20px;
-`
-
-const GameInfoCSS = styled.div`
-  margin-left: -30px;
-  padding-left: 0px;
-`
-
-const SortButtonCSS = styled.div`
-  margin-top: 10px;
-  margin-left: 8px;
-`
-
-const MoveListCSS = styled.ol`
-  margin-top: 20px;
-  padding-left: 5px;
-  margin-left: 10px;
-  width: 170px;
-`
+import Board from '../Board'
+import * as CSS from './CSS'
 
 class App extends React.Component {
   constructor() {
@@ -107,20 +84,20 @@ class App extends React.Component {
     }
 
     return (
-      <GameCSS>
+      <CSS.Game>
         <div>
           <Board
             winLine={calculateWinner(current.squares)[1]}
             squares={current.squares}
             onClick={i => this.handleClick(i)}
           />
-          <MoveListCSS>{moves}</MoveListCSS>
+          <CSS.MoveList>{moves}</CSS.MoveList>
         </div>
-        <GameInfoCSS>
+        <CSS.GameInfo>
           <div>{status}</div>
-          <SortButtonCSS>{sort}</SortButtonCSS>
-        </GameInfoCSS>
-      </GameCSS>
+          <CSS.SortButton>{sort}</CSS.SortButton>
+        </CSS.GameInfo>
+      </CSS.Game>
     )
   }
 }

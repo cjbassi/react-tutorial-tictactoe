@@ -1,0 +1,33 @@
+import styled from 'styled-components'
+
+const BoardRow = styled.div`
+  margin-left: 20px;
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+`
+
+const Square = styled.button`
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+  &:focus {
+    outline: none;
+  }
+`
+
+export {
+  BoardRow,
+  Square,
+}
