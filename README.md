@@ -1,6 +1,3 @@
-Implements all 5 extra steps listed at the end of the React tutorial and includes some changes to the CSS.
-Everything was added pretty cleanly except for the last step; not sure if it could be impoved.
-
-Todo:  
-- [ ] fix some formatting issues  
-- [ ] move the CSS into the React file
+Implements all 5 extra steps listed at the end of the React tutorial.
+Includes some CSS changes, and the CSS has also been refactored to use [styled-components](https://github.com/styled-components/styled-components).
+The extra step were added pretty cleanly except for the last step; not sure if it could be impoved.
