@@ -4,11 +4,7 @@ import * as CSS from './CSS'
 let Square = ({ winLine, number, value, onClick }) => {
   return (
     <CSS.Square
-      style={
-        winLine.includes(number)
-          ? {backgroundColor: 'yellow'}
-          : {}
-      }
+      winner={winLine.includes(number)}
       onClick={onClick}>
         {value}
     </CSS.Square>

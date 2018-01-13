@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const BoardRow = styled.div`
   margin-left: 20px;
@@ -22,9 +22,14 @@ const Square = styled.button`
   padding: 0;
   text-align: center;
   width: 34px;
+
   &:focus {
     outline: none;
   }
+
+  ${props => props.winner && css`
+    background-color: yellow;
+  `}
 `
 
 export {
