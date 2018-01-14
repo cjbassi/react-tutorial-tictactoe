@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
 
-const Status = ({ xIsNext, winner }) => {
+const Status = (props) => {
+  const { xIsNext, winner } = props
   let status
   if (winner) {
     status = `Winner: ${winner}`

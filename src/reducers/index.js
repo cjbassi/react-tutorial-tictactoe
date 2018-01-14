@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 
-import game from './game'
-import descending from './descending'
+import gameReducer from './game'
+import descendingReducer from './descending'
 
 const rootReducer = combineReducers({
-  game,
-  descending,
+  game: gameReducer,
+  descending: descendingReducer,
 })
 
 export default rootReducer

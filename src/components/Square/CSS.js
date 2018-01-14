@@ -15,11 +15,11 @@ const Square = styled.button`
   width: 34px;
 
   &:focus {
-    outline: none;
+  outline: none;
   }
 
   ${props => props.winningSquare && css`
-    background-color: yellow;
+  background-color: yellow;
   `}
 `
 

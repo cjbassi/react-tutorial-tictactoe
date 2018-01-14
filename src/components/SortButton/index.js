@@ -1,8 +1,9 @@
-import React from 'react'
+import * as React from 'react'
 
 import CSS from './CSS'
 
-const SortButton = ({ toggleSort }) => {
+const SortButton = (props) => {
+  const { toggleSort } = props
   return (
     <CSS>
       <button onClick={toggleSort}>

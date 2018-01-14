@@ -1,4 +1,8 @@
-const descending = (state = true, action) => {
+export const initialState = {
+  descending: true,
+}
+
+const descendingReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'TOGGLE_SORT':
       return !state
@@ -7,4 +11,4 @@ const descending = (state = true, action) => {
   }
 }
 
-export default descending
+export default descendingReducer

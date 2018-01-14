@@ -1,25 +1,19 @@
-const clickSquare = (square) => {
+export const clickSquare = (square) => {
   return {
     type: 'CLICK_SQUARE',
     square,
   }
 }
 
-const changeStep = (step) => {
+export const changeStep = (step) => {
   return {
     type: 'CHANGE_STEP',
     step,
   }
 }
 
-const toggleSort = () => {
+export const toggleSort = () => {
   return {
     type: 'TOGGLE_SORT',
   }
-}
-
-export {
-  clickSquare,
-  changeStep,
-  toggleSort,
 }

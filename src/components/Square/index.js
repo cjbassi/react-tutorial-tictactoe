@@ -1,7 +1,8 @@
-import React from 'react'
+import * as React from 'react'
 import CSS from './CSS'
 
-const Square = ({ content, clickSquare, winningSquare }) => {
+const Square = (props) => {
+  const { content, clickSquare, winningSquare } = props
   return (
     <CSS winningSquare={winningSquare} onClick={clickSquare}>
       {content}

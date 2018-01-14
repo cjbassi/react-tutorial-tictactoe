@@ -2,13 +2,13 @@ import calculateWinner from '../utils/calculateWinner'
 
 const initialState = {
   boardHistory: [Array(9).fill(null)],
-  clickHistory: [null],
+  clickHistory: [],
   step: 0,
   xIsNext: true,
   winningSquares: null,
 }
 
-const game = (state = initialState, action) => {
+const gameReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'CLICK_SQUARE':
       const boardHistory = state.boardHistory.slice(0, state.step + 1)
@@ -46,4 +46,4 @@ const game = (state = initialState, action) => {
   }
 }
 
-export default game
+export default gameReducer
