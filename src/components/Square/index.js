@@ -1,9 +1,9 @@
 import React from 'react'
 import CSS from './CSS'
 
-let Square = ({ winLine, id, content, clickSquare }) => {
+const Square = ({ content, clickSquare, winningSquare }) => {
   return (
-    <CSS onClick={() => clickSquare(id)}>
+    <CSS winningSquare={winningSquare} onClick={clickSquare}>
       {content}
     </CSS>
   )

@@ -5,7 +5,7 @@ import { changeStep } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    boardHistory: state.game.boardHistory,
+    moveCount: state.game.boardHistory.length,
     clickHistory: state.game.clickHistory,
     step: state.game.step,
     descending: state.descending,

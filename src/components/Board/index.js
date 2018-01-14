@@ -3,17 +3,16 @@ import React from 'react'
 import CSS from './CSS'
 import Square from '../../containers/Square'
 
-const Board = ({ currentBoard }) => {
+const Board = () => {
   let row = []
   let cells = []
   let cellNumber = 0
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
-      row.push (
+      row.push(
         <Square
           key={cellNumber}
           id={cellNumber}
-          content={currentBoard[cellNumber]}
         />
       )
       cellNumber++

@@ -18,7 +18,7 @@ const Square = styled.button`
     outline: none;
   }
 
-  ${props => props.winner && css`
+  ${props => props.winningSquare && css`
     background-color: yellow;
   `}
 `

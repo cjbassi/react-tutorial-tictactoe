@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as CSS from './CSS'
 
-import Board from '../../containers/Board'
+import Board from '../Board'
 import MoveList from '../../containers/MoveList'
 import SortButton from '../../containers/SortButton'
 import Status from '../../containers/Status'

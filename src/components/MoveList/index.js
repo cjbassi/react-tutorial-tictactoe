@@ -1,9 +1,10 @@
 import React from 'react'
+import * as _ from 'lodash'
 
 import CSS from './CSS'
 
-const MoveList = ({ boardHistory, clickHistory, step, descending, changeStep }) => {
-  let moves = boardHistory.map((board, move) => {
+const MoveList = ({ moveCount, clickHistory, step, descending, changeStep }) => {
+  let moves = _.range(moveCount).map((move) => {
     const desc = (move)
       ? `Go to move #${move} (${clickHistory[move - 1]})`
       : 'Go to game start'

@@ -3,22 +3,24 @@ import { connect } from 'react-redux'
 import Square from '../components/Square'
 import { clickSquare } from '../actions'
 
-const mapStateToProps = (state, ownProps) => {
+const matchStateToProps = (state, ownProps) => {
+  const currentBoard = state.game.boardHistory[state.game.step]
+  const { winningSquares } = state.game
   return {
-    winner: state.game.winner,
-    winLine: state.game.winLine,
+    content: currentBoard[ownProps.id],
+    winningSquare: winningSquares ? winningSquares.includes(ownProps.id) : false
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    clickSquare: (square) => {
-      dispatch(clickSquare(square))
+    clickSquare: () => {
+      dispatch(clickSquare(ownProps.id))
     },
   }
 }
 
 export default connect(
-  mapStateToProps,
+  matchStateToProps,
   mapDispatchToProps,
 )(Square)
