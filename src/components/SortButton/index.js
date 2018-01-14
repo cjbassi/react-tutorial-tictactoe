@@ -1,10 +1,14 @@
 import React from 'react'
+
 import CSS from './CSS'
 
-const SortButton = ({ descending, toggleSort }) => {
-  let sort = <button onClick={toggleSort}>toggle sort</button>
+const SortButton = ({ toggleSort }) => {
   return (
-    <CSS>{sort}</CSS>
+    <CSS>
+      <button onClick={toggleSort}>
+        toggle sort
+      </button>
+    </CSS>
   )
 }
 

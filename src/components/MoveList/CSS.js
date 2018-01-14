@@ -6,4 +6,5 @@ const MoveList = styled.ol`
   margin-left: 10px;
   width: 170px;
 `
+
 export default MoveList

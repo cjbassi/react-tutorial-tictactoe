@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Status = ({ winner, xIsNext }) => {
+const Status = ({ xIsNext, winner }) => {
   let status
   if (winner) {
     status = "Winner: " + winner
