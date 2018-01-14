@@ -1,4 +1,5 @@
 import * as React from 'react'
+import PropTypes from 'prop-types'
 
 import CSS from './CSS'
 
@@ -11,6 +12,10 @@ const SortButton = (props) => {
       </button>
     </CSS>
   )
+}
+
+SortButton.propTypes = {
+  toggleSort: PropTypes.func.isRequired,
 }
 
 export default SortButton

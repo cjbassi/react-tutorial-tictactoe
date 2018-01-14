@@ -1,4 +1,6 @@
 import * as React from 'react'
+import PropTypes from 'prop-types'
+
 import CSS from './CSS'
 
 const Square = (props) => {
@@ -8,6 +10,12 @@ const Square = (props) => {
       {content}
     </CSS>
   )
+}
+
+Square.propTypes = {
+  content: PropTypes.string.isRequired,
+  clickSquare: PropTypes.func.isRequired,
+  winningSquare: PropTypes.bool.isRequired,
 }
 
 export default Square

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import PropTypes from 'prop-types'
 import * as _ from 'lodash'
 
 import CSS from './CSS'
@@ -25,6 +26,14 @@ const MoveList = (props) => {
       {moves}
     </CSS>
   )
+}
+
+MoveList.propTypes = {
+  moveCount: PropTypes.number.isRequired,
+  clickHistory: PropTypes.arrayOf(PropTypes.number).isRequired,
+  step: PropTypes.number.isRequired,
+  descending: PropTypes.bool.isRequired,
+  changeStep: PropTypes.func.isRequired,
 }
 
 export default MoveList

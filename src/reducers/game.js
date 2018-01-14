@@ -1,7 +1,7 @@
 import calculateWinner from '../utils/calculateWinner'
 
 const initialState = {
-  boardHistory: [Array(9).fill(null)],
+  boardHistory: [Array(9).fill('')],
   clickHistory: [],
   step: 0,
   xIsNext: true,

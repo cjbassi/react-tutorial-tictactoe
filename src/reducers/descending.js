@@ -1,6 +1,4 @@
-export const initialState = {
-  descending: true,
-}
+export const initialState = true
 
 const descendingReducer = (state = initialState, action) => {
   switch (action.type) {

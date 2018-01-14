@@ -4,7 +4,7 @@ import Status from '../components/Status'
 
 const mapStateToProps = (state, ownProps) => {
   const { winningSquares } = state.game
-  let winner = null
+  let winner = ''
   if (winningSquares) {
     const currentBoard = state.game.boardHistory[state.game.step]
     winner = currentBoard[winningSquares[0]]
