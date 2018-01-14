@@ -2,7 +2,7 @@
   "name": "react-tutorial-tictactoe",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://cjbassi.github.io/react-tutorial-tictactoe-redux",
+  "homepage": "http://cjbassi.github.io/react-tutorial-tictactoe",
   "dependencies": {
     "lodash": "^4.17.4",
     "react": "^16.2.0",
