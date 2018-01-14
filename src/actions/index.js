@@ -18,7 +18,7 @@ const toggleSort = () => {
   }
 }
 
-export default {
+export {
   clickSquare,
   changeStep,
   toggleSort,

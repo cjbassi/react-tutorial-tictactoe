@@ -3,9 +3,9 @@ import React from 'react'
 import CSS from './CSS'
 
 const MoveList = ({ history, descending, stepNumber, jumpTo, cellClicked }) => {
-  let moves = history.map((step, move) => {
+  let moves = history.map((board, move) => {
     const desc = (move)
-      ? `Go to move #${move} (${cellClicked[move]})`
+      ? `Go to move #${move} (${cellClicked[move - 1]})`
       : 'Go to game start'
     return (
       <li key={move}>

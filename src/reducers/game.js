@@ -1,30 +1,12 @@
+import calculateWinner from '../utils/calculateWinner'
+
 const initialState = {
   boardHistory: [Array(9).fill(null)],
   clickHistory: [null],
   step: 0,
   xIsNext: true,
   winLine: Array(3).fill(null),
-  winner: '',
-}
-
-function calculateWinner(squares) {
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-  ]
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i]
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return [squares[a], lines[i]]
-    }
-  }
-  return [null, Array(3).fill(null)]
+  winner: null,
 }
 
 const game = (state = initialState, action) => {
@@ -32,8 +14,8 @@ const game = (state = initialState, action) => {
     case 'CLICK_SQUARE':
       const boardHistory = state['boardHistory'].slice(0, state['step'] + 1)
       const currentBoard = boardHistory[boardHistory.length - 1].slice()
-      const { winner, winLine } = calculateWinner(currentBoard)
-      if (winner || currentBoard[action.square]) {
+      let [winner, winLine] = calculateWinner(currentBoard)
+      if (!!winner || currentBoard[action.square]) {
         // if game has been won, or the clicked square is already occupied
         return {
           ...state,
@@ -42,11 +24,14 @@ const game = (state = initialState, action) => {
         }
       }
       currentBoard[action.square] = state['xIsNext'] ? 'X' : 'O'
+      boardHistory[state['step'] + 1] = currentBoard
+      const clickHistory = state['clickHistory'].slice()
+      clickHistory[state['step']] = action.square
       return {
         ...state,
-        boardHistory: boardHistory.concat(currentBoard),
-        clickHistory: state['clickHistory'].slice()[state['step']] = action.square,
-        step: state['step']++,
+        boardHistory,
+        clickHistory,
+        step: ++state['step'],
         xIsNext: !state['xIsNext'],
       }
     case 'CHANGE_STEP':
