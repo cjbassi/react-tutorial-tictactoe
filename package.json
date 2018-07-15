@@ -8,7 +8,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
-    "react-scripts": "1.0.17",
+    "react-scripts": "^1.1.4",
     "redux": "^3.7.2",
     "styled-components": "^2.4.0"
   },
@@ -21,11 +21,11 @@
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
-    "eslint": "^4.15.0",
+    "eslint": "^5.1.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
-    "gh-pages": "^1.1.0"
+    "gh-pages": "^1.2.0"
   }
 }
